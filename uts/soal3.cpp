@@ -3,12 +3,12 @@
 
 using namespace std;
 
-bool isPrime(int number) {
-    if (number <= 1) {
+bool prima(int angka) {
+    if (angka <= 1) {
         return false;
     }
-    for (int i = 2; i <= sqrt(number); ++i) {
-        if (number % i == 0) {
+    for (int i = 2; i <= sqrt(angka); ++i) {
+        if (angka % i == 0) {
             return false;
         }
     }
@@ -23,22 +23,22 @@ int main() {
 
     int sum = 0;
     int nomor = 0;
-    bool isNumber = false;
+    bool bilangan = false;
 
     for (char c : input) {
         if (c >= '0' && c <= '9') {
             nomor = nomor * 10 + (c - '0');
-            isNumber = true;
-        } else if (isNumber) {
-            if (isPrime(nomor)) {
+            bilangan = true;
+        } else if (bilangan) {
+            if (prima(nomor)) {
                 sum += nomor;
             }
             nomor = 0;
-            isNumber = false;
+            bilangan = false;
         }
     }
 
-    if (isNumber && isPrime(nomor)) {
+    if (bilangan && prima(nomor)) {
         sum += nomor;
     }
 
